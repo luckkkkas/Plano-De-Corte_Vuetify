@@ -13,8 +13,10 @@ import App from './App.vue'
 // Composables
 import { createApp } from 'vue'
 
-const app = createApp(App)
+import router from './router/index'; // Importa o router
 
+const app = createApp(App)
+app.use(router); // Use o router
 registerPlugins(app)
 
 app.mount('#app')
