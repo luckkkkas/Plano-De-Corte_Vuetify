@@ -14,3 +14,11 @@ export default {
   // Sua configuração padrão aqui
 }
 </script>
+<style>
+  *{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+</style>

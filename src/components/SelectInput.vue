@@ -1,29 +1,20 @@
 <template>
-    <v-app>
-      <v-container>
         <v-select :label='label' :items='items'/>
-      </v-container>
-    </v-app>
   </template>
 
 <script>
 export default {
     props:{ 
-      label : 'string',
-      emit: ['updateoptions']
+      label : String,
+      modelValue: String,
+      items: Array,
+      id: String
     },
-    methods:{
-      updateOptions() {
-           this.items = [
-                'option1',
-                'option2',
-                'option3',
-                'option4'
-            ]
-        }
-    }, 
-    mounted(){
-     this.updateOtions()
+    emits: ['update:modelValue'],
+    watch: {
+    modelValue(value) {
+      this.$emit('update:modelValue', value);
     }
+  }
 }
 </script>
