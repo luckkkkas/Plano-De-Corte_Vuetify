@@ -1,5 +1,5 @@
 <template>
-        <v-select :label='label' :items='items'/>
+        <v-select :label='label' v-model="selectedValue" :items='items'/>
   </template>
 
 <script>
@@ -10,10 +10,14 @@ export default {
       items: Array,
       id: String
     },
-    emits: ['update:modelValue'],
-    watch: {
-    modelValue(value) {
-      this.$emit('update:modelValue', value);
+    computed: {
+      selectedValue:{
+      get() {
+        return this.value
+      },
+      set(value){
+        this.$emit('input', value)
+      }
     }
   }
 }

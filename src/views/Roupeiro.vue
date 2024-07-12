@@ -4,40 +4,52 @@
         <div class=" d-col  w-100 w-sm-75 w-lg-50">
           <h1 class="my-15">Plano de Corte do Roupeiro</h1>
           <v-form @submit.prevent="atribuirValores">  
-            <SelectInput 
-              v-model="inputs.tamponamento" 
-              label="Tamponamento" 
-              :items="['parede 2 lados', 'parede 1 lados', 'closet']" 
-              />
-            <SelectInput
-              v-model="inputs.acSuperior" 
+            
+            <v-select
+              v-model="inputs.tamponamento"
+              label="Tamponamento"
+              :items="['parede 2 lados', 'parede 1 lados', 'Sem parede', 'closet']"
+            />
+            <v-select
               label="Acabamento Superior"
               :items="['até o teto', 'Acabamento simples']"
+              v-model="inputs.acSuperior" 
             />
-            <InputNumber
-              v-mode.number="inputs.largura" 
+            <v-text-field 
+              type="number" 
               label="Largura (mm)"
+              hint="Informe a Largura em MM"
+              v-model="inputs.largura"
             />
-            <InputNumber
-              v-model.number="inputs.altura" 
+            <v-text-field 
+              type="number" 
               label="Altura (mm)"
+              hint="Informe a Altura em MM"
+              v-model="inputs.altura"
             />
-            <InputNumber 
-              v-model.number="inputs.profundidade"
-              id="profundidade" 
+            <v-text-field 
+              type="number" 
+              label="espessura do Tamponamento (mm)"
+              hint="Informe a Altura em MM"
+              v-model="inputs.espessura"
+            />
+            <v-text-field 
+              type="number" 
               label="Profundidade (mm)"
+              hint="Informe a Profundidade em MM"
+              v-model="inputs.profundidade"
             />
-            <SelectInput
+            <v-select
               v-model="inputs.nVaos" 
               label="Nº de Vãos" 
               :items="['1','2','3']" 
             />
-            <SelectInput
+            <v-select
               v-model="inputs.nGavetas" 
               label="Nº de Gavetas" 
               :items="['1','2','3','4','5','6','7','8','9','10','11','12']" 
             />
-            <SelectInput 
+            <v-select
               v-model="inputs.nPortas"
               label="Nº de portas" 
               :items="['2','3']" 
@@ -64,20 +76,19 @@
         inputs: {
           tamponamento: '',
           acSuperior: '',
-          largura: 0,
-          altura: 0,
-          profundidade: 0,
+          largura: '',
+          altura: '',
+          profundidade: '',
           nVaos: '',
           nGavetas: '',
           nPortas: '',
+          espessura:'',
         },
-        resultado: null
+        resultado: null, 
     };
   }, 
-  methods: {
-   
+  methods: {   
    atribuirValores(){
-      console.log(this.inputs)
       const params = {
           tamponamento: this.inputs.tamponamento,
           acSuperior: this.inputs.acSuperior,
@@ -86,7 +97,8 @@
           profundidade: this.inputs.profundidade,
           nVaos: this.inputs.nVaos,
           nGavetas: this.inputs.nGavetas,
-          nPortas: this.inputs.nPortas, 
+          nPortas: this.inputs.nPortas,
+          espessuraTamponamento: this.inputs.espessura, 
       };
       this.resultado = cortarRoupeiro(params);
     },
