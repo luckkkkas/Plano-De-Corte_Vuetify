@@ -52,10 +52,12 @@ interface IResultadoRoupeiro {
   quantLaterais?: number;
   quantLateraisGaveta?: number;
   fundoLargura?: number;
+  alturaTravessaGaveta?: number;
+  quantPuxadores?: number;
 }
 
 function corpo(params: IParametrosRoupeiro): IResultadoRoupeiro{
-  const { largura, nGavetas,altura, profundidade,nVaos, acSuperior, espessuraTamponamento,descontoFundo, descontoFundoGaveta, alturaAcSuperiorSimples, descontoPortaDeTras, descontoPortaDaFrente, descontoAlturaPorta, descontoGaveta, suporteCabide,espessuraLateral, espacoTrilho, alturaAcSuperior, alturaRodape} = params;
+  const { largura, nPortas, nGavetas, altura, profundidade,nVaos, acSuperior, espessuraTamponamento,descontoFundo, descontoFundoGaveta, alturaAcSuperiorSimples, descontoPortaDeTras, descontoPortaDaFrente, descontoAlturaPorta, descontoGaveta, suporteCabide,espessuraLateral, espacoTrilho, alturaAcSuperior, alturaRodape} = params;
   if (largura <= 0 || altura <= 0 || profundidade <= 0) {
     // faz verificação para ver se os elementos são válidos
     alert('Altura, largura ou profundidade inválida');
@@ -66,10 +68,11 @@ function corpo(params: IParametrosRoupeiro): IResultadoRoupeiro{
       const quantDivisorias = nVaos - 1;
       const espLateralX2 = espessuraLateral * 2;
       const lateralProf = (profundidade - espacoTrilho);
-      const quantLaterais = (nVaos) + 1;
+      const prateleiraProf = lateralProf -espessuraLateral;
+      const quantLaterais = ((Number(nVaos)) + 1);
       const baseComp = largura - espTamponamentoX2
       const trilhoComp = (baseComp - 2); // desconta 2 mm da base para ter uma folga
-      const prateleiraComp = ((largura - espLateralX2 - espTamponamentoX2 - (espessuraLateral*quantDivisorias)) / nVaos);//verificar essa linha novamente 
+      const prateleiraComp = Math.trunc( ((largura - espLateralX2 - espTamponamentoX2 - (espessuraLateral*quantDivisorias)) / nVaos));//verificar essa linha novamente 
       const cabideComp = prateleiraComp - suporteCabide;
       const travessaGavetaComp = (prateleiraComp - descontoGaveta);
       const fundoLargura = prateleiraComp + espTamponamentoX2 - descontoFundo; // verificar desconto do fundo
@@ -81,6 +84,8 @@ function corpo(params: IParametrosRoupeiro): IResultadoRoupeiro{
       const fundoGavetaComp = travessaGavetaComp + descontoFundoGaveta; 
       const lateralGavetaProf = lateralProf - alturaAcSuperiorSimples;
       const fundoGavetaProf = lateralGavetaProf - descontoFundoGaveta; 
+      const alturaTravessaGaveta = 130;
+      const quantPuxadores = Number(nPortas) + 1; 
       // --------------------;
       if (acSuperior === 'até o teto') {
         //calcula as peças se o movel for ate o teto
@@ -90,6 +95,7 @@ function corpo(params: IParametrosRoupeiro): IResultadoRoupeiro{
           const puxadorComp = lateralAltura - descontoAlturaPorta;
           const fundoAltura = altura - alturaRodape - alturaAcSuperior - descontoFundo;
           return{
+            prateleiraProf,
             fundoGavetaProf,
             fundoGavetaComp,
             quantFundoGavetas,
@@ -109,6 +115,8 @@ function corpo(params: IParametrosRoupeiro): IResultadoRoupeiro{
             puxadorComp,
             fundoAltura,
             quantLateraisGaveta,
+            alturaTravessaGaveta,
+            quantPuxadores,
           }
           //====================abaixo nao é ate o teto==================================================================
       }else{
@@ -118,6 +126,7 @@ function corpo(params: IParametrosRoupeiro): IResultadoRoupeiro{
           const fundoAltura = altura - alturaAcSuperiorSimples - alturaRodape - descontoFundo;
           const puxadorComp = lateralAltura - descontoAlturaPorta;
           return {
+            prateleiraProf,
             fundoGavetaProf,
             fundoGavetaComp,
             quantFundoGavetas,
@@ -137,7 +146,8 @@ function corpo(params: IParametrosRoupeiro): IResultadoRoupeiro{
             puxadorComp,
             fundoAltura,
             quantLateraisGaveta,
-            
+            alturaTravessaGaveta,
+            quantPuxadores,
           }
       }
      

@@ -39,6 +39,12 @@
               hint="Informe a Profundidade em MM"
               v-model.number="inputs.profundidade"
             />
+            <v-number-input 
+              type="number" 
+              label="Prateleiras"
+              hint="Informe quantidade de Prateleira"
+              v-model.number="inputs.nPrateleiras"
+            />
             <v-select
               v-model="inputs.nVaos" 
               label="Nº de Vãos" 
@@ -85,7 +91,7 @@
             <h3 class="mt-5">Acessórios</h3>
             <v-data-table-virtual 
             class="mt-10 mx-4"
-              :headers="headers"  
+              :headers="acessoriosHead"  
               :items="acessorios"
               height="320"
               item-value="name"  
@@ -115,12 +121,19 @@
           nGavetas: '',
           nPortas: '',
           espessura:'',
+          nPrateleiras: '',
         },
         resultado: null, 
         headers: [
           { title: 'Quantidade', align: 'start', key: 'Quantidade' },
           { title: 'Comprimento', align: 'end', key: 'Comprimento' },
           { title: 'Largura', align: 'end', key: 'Largura' },
+          { title: 'Nome', align: 'end', key: 'Nome' },
+          
+        ],
+        acessoriosHead:[
+          { title: 'Quantidade', align: 'start', key: 'Quantidade' },
+          { title: 'Comprimento', align: 'end', key: 'Comprimento' },
           { title: 'Nome', align: 'end', key: 'Nome' },
           
         ],
@@ -209,13 +222,13 @@
       Nome: 'Laterais/divisórias',
     },
     {
-      Quantidade: this.resultado.calcularCorpo.quantPrateleira,
+      Quantidade: this.inputs.nPrateleiras,
       Comprimento: this.resultado.calcularCorpo.prateleiraComp,
       Largura: this.resultado.calcularCorpo.prateleiraProf,
       Nome: 'Prateleiras',
     },
     {
-      Quantidade: this.resultado.calcularCorpo.nVaos,
+      Quantidade: this.inputs.nVaos,
       Comprimento: this.resultado.calcularCorpo.fundoAltura,
       Largura: this.resultado.calcularCorpo.fundoLargura,
       Nome: 'Fundos Roupeiro',
@@ -229,7 +242,7 @@
     {
       Quantidade: this.resultado.calcularCorpo.quantTravessaGaveta,
       Comprimento: this.resultado.calcularCorpo.travessaGavetaComp,
-      Largura: '130',
+      Largura: this.resultado.calcularCorpo.alturaTravessaGaveta,
       Nome: 'Trvessa Gaveta',
     },
     {
@@ -260,12 +273,12 @@
     Nome: 'Cabides',
   },
   {
-    Quantidade: this.inputs.nVaos,
+    Quantidade: this.resultado.calcularCorpo.quantPuxadores,
     Comprimento: this.resultado.calcularCorpo.puxadorComp,
     Nome: 'Puxadores',
   },
   {
-    Quantidade: this.inputs.nVaos,
+    Quantidade: '1',
     Comprimento: this.resultado.calcularCorpo.trilhoComp,
     Nome: 'Trilho',
   },
