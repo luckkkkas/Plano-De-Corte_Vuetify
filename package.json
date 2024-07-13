@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc  --noEmit && vite build",
-    "preview": "vite preview"
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+     "deploy": "gh-pages -d dist"
   },
+  "homepage": "https://seu-usuario.github.io/nome-do-seu-repositorio",
   "dependencies": {
     "@mdi/font": "6.2.95",
     "roboto-fontface": "*",
@@ -17,6 +19,7 @@
     "@babel/types": "^7.24.0",
     "@types/node": "^20.11.25",
     "@vitejs/plugin-vue": "^5.0.4",
+    "gh-pages": "^6.1.1",
     "sass": "^1.71.1",
     "typescript": "^5.4.2",
     "unplugin-fonts": "^1.1.1",
@@ -26,4 +29,3 @@
     "vue-tsc": "^2.0.6"
   }
 }
-

@@ -10,6 +10,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/nome-do-seu-repositorio/',
   plugins: [
     Vue({
       template: { transformAssetUrls },
@@ -26,6 +27,10 @@ export default defineConfig({
       },
     }),
   ],
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+  },
   define: { 'process.env': {} },
   resolve: {
     alias: {
