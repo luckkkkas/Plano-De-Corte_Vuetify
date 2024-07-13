@@ -1,13 +1,14 @@
 {
-  "name": "Plano-De-Corte-Vuetify",
+  "name": "Plano-De-Corte_Vuetify",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
+    "predeploy": "npm run build",
      "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://seu-usuario.github.io/nome-do-seu-repositorio",
+  "homepage": "https://luckkkkas.github.io/Plano-De-Corte_Vuetify",
   "dependencies": {
     "@mdi/font": "6.2.95",
     "roboto-fontface": "*",
