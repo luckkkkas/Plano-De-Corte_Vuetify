@@ -1,6 +1,6 @@
 <template>
     <v-app>
-      <div class="d-flex justify-sm-space-around">
+      <div class="flex-xm-column d-md-flex">
         <div class=" d-flex flex-column mx-auto w-100 w-sm-75 w-lg-50">
           <h1 class="my-15">Plano de Corte do Roupeiro</h1>
           <v-form @submit.prevent="atribuirValores">  
@@ -8,7 +8,7 @@
             <v-select
               v-model="inputs.tamponamento"
               label="Tamponamento"
-              :items="['parede 2 lados', 'parede 1 lados', 'Sem parede', 'closet']"
+              :items="['parede 2 lados', 'parede 1 lados', 'Sem parede']"
             />
             <v-select
               label="Acabamento Superior"
