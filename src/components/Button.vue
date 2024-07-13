@@ -4,7 +4,7 @@
   
 <script>
   export default {
-    props: ['label']
+    props: ['label'],
   } 
 </script>
   
