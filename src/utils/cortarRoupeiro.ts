@@ -24,44 +24,49 @@ interface IParametrosRoupeiro{
 }
 
 interface IResultadoRoupeiro {
-  lateralAltura: number;
-  quantlaterais: number; 
-  lateralProf: number;
-  baseComp: number;
-  baseProfu: number;
-  prateleiraComp: number; 
-  prateleiraProf: number;
-  travessaGavetaAltura: number;
-  travessaGavetaComp: number;
-  fundoAltura: number; 
-  fundoComp: number; 
-  portaAltura: number;
-  porta1Comp: number;
-  porta2Comp: number;
-  puxadorComp: number; 
-  cabideComp: number; 
-  trilhoComp: number;
-  fundoGavetasComp: number;
-  fundoGavetasProf: number;
-  rodape: number;
-  espessuraTamponamento: number;
-  calcularCorpo: any;
-  calcularTamponameto: any;
+  lateralAltura?: number;
+  quantlaterais?: number; 
+  lateralProf?: number;
+  baseComp?: number;
+  baseProfu?: number;
+  prateleiraComp?: number; 
+  prateleiraProf?: number;
+  travessaGavetaAltura?: number;
+  travessaGavetaComp?: number;
+  fundoAltura?: number; 
+  fundoComp?: number; 
+  portaAltura?: number;
+  porta1Comp?: number;
+  porta2Comp?: number;
+  puxadorComp?: number; 
+  cabideComp?: number; 
+  trilhoComp?: number;
+  fundoGavetasComp?: number;
+  fundoGavetasProf?: number;
+  rodape?: number;
+  espessuraTamponamento?: number;
+  fundoGavetaProf?: number;
+  fundoGavetaComp?: number;
+  quantFundoGavetas?: number;
+  quantTravessaGaveta?: number;
+  quantLaterais?: number;
+  quantLateraisGaveta?: number;
+  fundoLargura?: number;
 }
 
-function corpo(params: IParametrosRoupeiro) {
-  const { largura, descontoFundo, nGavetas,altura, descontoFundoGaveta,alturaAcSuperiorSimples,profundidade, descontoPortaDeTras, descontoPortaDaFrente,descontoAlturaPorta,nVaos, descontoGaveta,suporteCabide,espessuraLateral,espessuraBase ,espacoTrilho, acSuperior ,espessuraTamponamento, alturaAcSuperior, alturaRodape} = params;
-    console.log(params)
+function corpo(params: IParametrosRoupeiro): IResultadoRoupeiro{
+  const { largura, nGavetas,altura, profundidade,nVaos, acSuperior, espessuraTamponamento,descontoFundo, descontoFundoGaveta, alturaAcSuperiorSimples, descontoPortaDeTras, descontoPortaDaFrente, descontoAlturaPorta, descontoGaveta, suporteCabide,espessuraLateral, espacoTrilho, alturaAcSuperior, alturaRodape} = params;
   if (largura <= 0 || altura <= 0 || profundidade <= 0) {
-      // faz verificação para ver se os elementos são válidos
-      alert('Altura, largura ou profundidade inválida');
+    // faz verificação para ver se os elementos são válidos
+    alert('Altura, largura ou profundidade inválida');
+    return{}
   } else {
     //calcula as operações comum para todos
       const espTamponamentoX2 = (espessuraTamponamento *2);
       const quantDivisorias = nVaos - 1;
       const espLateralX2 = espessuraLateral * 2;
       const lateralProf = (profundidade - espacoTrilho);
-      const quantLaterais = (Number(nVaos) + 1);
+      const quantLaterais = (nVaos) + 1;
       const baseComp = largura - espTamponamentoX2
       const trilhoComp = (baseComp - 2); // desconta 2 mm da base para ter uma folga
       const prateleiraComp = ((largura - espLateralX2 - espTamponamentoX2 - (espessuraLateral*quantDivisorias)) / nVaos);//verificar essa linha novamente 
@@ -81,10 +86,10 @@ function corpo(params: IParametrosRoupeiro) {
         //calcula as peças se o movel for ate o teto
         // abixo operções comum para todos.
           const portaAltura = altura - alturaAcSuperior - alturaRodape  - espLateralX2 - descontoAlturaPorta;
-          const lateralAltura = altura - (alturaRodape + alturaRodape + espessuraBase);
+          const lateralAltura = altura - (alturaRodape + alturaAcSuperior+ espLateralX2);
           const puxadorComp = lateralAltura - descontoAlturaPorta;
           const fundoAltura = altura - alturaRodape - alturaAcSuperior - descontoFundo;
-          console.log(
+          return{
             fundoGavetaProf,
             fundoGavetaComp,
             quantFundoGavetas,
@@ -104,7 +109,7 @@ function corpo(params: IParametrosRoupeiro) {
             puxadorComp,
             fundoAltura,
             quantLateraisGaveta,
-          )
+          }
           //====================abaixo nao é ate o teto==================================================================
       }else{
           //calculo comum para todos
@@ -132,6 +137,7 @@ function corpo(params: IParametrosRoupeiro) {
             puxadorComp,
             fundoAltura,
             quantLateraisGaveta,
+            
           }
       }
      
@@ -195,38 +201,11 @@ function tamponamento(params: IParametrosRoupeiro){
   }
 }
 
-export function cortarRoupeiro(params: IParametrosRoupeiro):void {
-  
+export async function cortarRoupeiro(params: IParametrosRoupeiro){
   const calcularCorpo = corpo(params);
   const  calcularTamponamento = tamponamento(params);
-    
-  const resultado = {
-    tamponamento: params.tamponamento,
-    acSuperior: params.acSuperior,
-    largura:params.largura,
-    altura:params.altura,
-    profundidade: params.profundidade,
-    nVaos: params.nVaos,
-    nGavetas: params.nGavetas,
-    nPortas: params.nPortas,
-    espessuraTamponamento: params.espessuraTamponamento,
-    espacoTrilho: 80,
-    alturaRodape: 110,
-    alturaAcSupeior: 100,
-    espessurabase: 15,
-    espessuraLateral: 15,
-    suporteCabide: 5,
-    descontoGaveta: 57,
-    descontoFundo: 5,
-    descontoPortaDeTras: 20,
-    descontoAlturaPorta: 5,
-    descontoPortaDaFrente: 5,
-    alturaAcSuperiorSimples: 30,
-    descontoFundoGaveta: 15, //configurar para alterar altomaticamente 
-    calcularTamponamento: calcularTamponamento,
-    calcularCorpo: calcularCorpo,
-  }
-  console.log(resultado)
+  return {
+    calcularCorpo,
+    calcularTamponamento
+  };
 }
- // Aqui você pode realizar os cálculos necessários com os parâmetros recebidos
-  // Exemplo de cálculo fictício
