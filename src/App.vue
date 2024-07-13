@@ -2,7 +2,7 @@
   <v-app>
     <v-container>
         <router-view>
-          <Home />
+          <Roupeiro />
         </router-view> <!-- Componente para renderizar as rotas -->
       </v-container>
   </v-app>
@@ -10,7 +10,7 @@
 
 <script>
 import Home from './views/Home.vue'
-import Roupeiro from './views/Roupeiro.vue'
+import Roupeiro from './views/Roupeiro.vue';
 export default {
   components: { Home },
   // Sua configuração padrão aqui
