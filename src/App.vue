@@ -12,7 +12,7 @@
 import Home from './views/Home.vue'
 import Roupeiro from './views/Roupeiro.vue';
 export default {
-  components: { Home },
+  components: { Home, Roupeiro},
   // Sua configuração padrão aqui
 }
 </script>
