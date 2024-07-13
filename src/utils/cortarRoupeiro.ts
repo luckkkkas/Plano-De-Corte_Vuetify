@@ -150,7 +150,6 @@ function corpo(params: IParametrosRoupeiro): IResultadoRoupeiro{
             quantPuxadores,
           }
       }
-     
   }
 
 }
