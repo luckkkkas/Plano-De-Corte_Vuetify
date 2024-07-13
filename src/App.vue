@@ -1,7 +1,9 @@
 <template>
   <v-app>
     <v-container>
-        <router-view></router-view> <!-- Componente para renderizar as rotas -->
+        <router-view>
+          <Home />
+        </router-view> <!-- Componente para renderizar as rotas -->
       </v-container>
   </v-app>
 </template>
