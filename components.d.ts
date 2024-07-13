@@ -16,3 +16,4 @@ declare module 'vue' {
     SelectInput: typeof import('./src/components/SelectInput.vue')['default']
   }
 }
+// com
