@@ -10,7 +10,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/nome-do-seu-repositorio/',
+  base: 'Plano-De-Corte-Vuetify',
   plugins: [
     Vue({
       template: { transformAssetUrls },
