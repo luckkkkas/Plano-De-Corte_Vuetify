@@ -1,8 +1,8 @@
 <template>
     <v-app>
-      <div class="flex-xm-column text-center d-lg-flex ">
+      <div class="flex-xm-column d-lg-flex ">
         <div class=" d-flex flex-column mx-auto w-100 w-sm-75 w-lg-50">
-          <h1 class="my-15">Plano de Corte do Roupeiro</h1>
+          <h1 class="my-15  text-center">Plano de Corte do Roupeiro</h1>
           <v-form @submit.prevent="atribuirValores">  
             
             <v-select
