@@ -21,6 +21,7 @@ interface IParametrosRoupeiro{
   descontoPortaDaFrente: number;
   alturaAcSuperiorSimples: number;
   descontoFundoGaveta: number;
+  descontoProfundidadeGaveta: number;
 }
 
 interface IResultadoRoupeiro {
@@ -54,14 +55,15 @@ interface IResultadoRoupeiro {
   fundoLargura?: number;
   alturaTravessaGaveta?: number;
   quantPuxadores?: number;
+  lateraisGavetaComp?: number;
 }
 
 function corpo(params: IParametrosRoupeiro): IResultadoRoupeiro{
-  const { largura, nPortas, nGavetas, altura, profundidade,nVaos, acSuperior, espessuraTamponamento,descontoFundo, descontoFundoGaveta, alturaAcSuperiorSimples, descontoPortaDeTras, descontoPortaDaFrente, descontoAlturaPorta, descontoGaveta, suporteCabide,espessuraLateral, espacoTrilho, alturaAcSuperior, alturaRodape} = params;
+  const { largura, nPortas, descontoProfundidadeGaveta, nGavetas, altura, profundidade,nVaos, acSuperior, espessuraTamponamento,descontoFundo, descontoFundoGaveta, alturaAcSuperiorSimples, descontoPortaDeTras, descontoPortaDaFrente, descontoAlturaPorta, descontoGaveta, suporteCabide,espessuraLateral, espacoTrilho, alturaAcSuperior, alturaRodape} = params;
   if (largura <= 0 || altura <= 0 || profundidade <= 0) {
     // faz verificação para ver se os elementos são válidos
     alert('Altura, largura ou profundidade inválida');
-    return{}
+    return {};
   } else {
     //calcula as operações comum para todos
       const espTamponamentoX2 = (espessuraTamponamento *2);
@@ -84,8 +86,8 @@ function corpo(params: IParametrosRoupeiro): IResultadoRoupeiro{
       const fundoGavetaComp = travessaGavetaComp + descontoFundoGaveta; 
       const lateralGavetaProf = lateralProf - alturaAcSuperiorSimples;
       const fundoGavetaProf = lateralGavetaProf - descontoFundoGaveta; 
-      const alturaTravessaGaveta = 130;
       const quantPuxadores = Number(nPortas) + 1; 
+      const lateraisGavetaComp = lateralProf - descontoProfundidadeGaveta;
       // --------------------;
       if (acSuperior === 'até o teto') {
         //calcula as peças se o movel for ate o teto
@@ -115,8 +117,8 @@ function corpo(params: IParametrosRoupeiro): IResultadoRoupeiro{
             puxadorComp,
             fundoAltura,
             quantLateraisGaveta,
-            alturaTravessaGaveta,
             quantPuxadores,
+            lateraisGavetaComp,
           }
           //====================abaixo nao é ate o teto==================================================================
       }else{
@@ -126,6 +128,7 @@ function corpo(params: IParametrosRoupeiro): IResultadoRoupeiro{
           const fundoAltura = altura - alturaAcSuperiorSimples - alturaRodape - descontoFundo;
           const puxadorComp = lateralAltura - descontoAlturaPorta;
           return {
+            lateraisGavetaComp,
             prateleiraProf,
             fundoGavetaProf,
             fundoGavetaComp,
@@ -146,7 +149,6 @@ function corpo(params: IParametrosRoupeiro): IResultadoRoupeiro{
             puxadorComp,
             fundoAltura,
             quantLateraisGaveta,
-            alturaTravessaGaveta,
             quantPuxadores,
           }
       }

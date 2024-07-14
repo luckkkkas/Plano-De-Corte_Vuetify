@@ -1,6 +1,6 @@
 <template>
     <v-app>
-      <div class="flex-xm-column d-md-flex">
+      <div class="flex-xm-column text-center d-lg-flex ">
         <div class=" d-flex flex-column mx-auto w-100 w-sm-75 w-lg-50">
           <h1 class="my-15">Plano de Corte do Roupeiro</h1>
           <v-form @submit.prevent="atribuirValores">  
@@ -60,37 +60,37 @@
               label="Nº de portas" 
               :items="['2','3']" 
             />
-            <div class="d-flex flex-column justify-lg-space-around">
-              <Button @click="limpar" class="ma-1" label="Limpar"/>
-              <v-btn type="submit" class="ma-1" color="secondary">Calcular</v-btn>
+            <div class="d-flex flex-column flex-lg-row justify-space-around">
+              <v-btn @click="limpar" class="ma-1" label="Limpar">Limpar</v-btn>
+              <v-btn type="submit" class="ma-1" color="primary">Calcular</v-btn>
             </div>
           </v-form>
         </div>
-        <div class="d-flex px-10 flex-column text-center" v-if="resultado">
-          <div class="mx-auto">
+        <div class=" flex-column pa-0 ma-0 text-center" v-if="resultado">
+          <div>
             <h3 class="mt-5">Interno</h3>
             <v-data-table-virtual v-if="resultado"
-            class="mt-10 mx-4"
+            class="mt-10 w-auto"
               :headers="headers"  
               :items="interno"
               height="420"
               item-value="name"  
             >{{ resultado }}</v-data-table-virtual>
           </div>
-          <div class="mx-auto" >
+          <div >
             <h3 class="mt-5">Tamponamento</h3>
             <v-data-table-virtual 
-            class="mt-10 mx-4"
+            class="mt-10 w-auto"
               :headers="headers"  
               :items="tamponamento"
               height="content"
               item-value="name"  
             >{{ resultado }}</v-data-table-virtual>
           </div>
-          <div >
+          <div>
             <h3 class="mt-5">Acessórios</h3>
             <v-data-table-virtual 
-            class="mt-10 mx-4"
+            class="mt-10 w-auto"
               :headers="acessoriosHead"  
               :items="acessorios"
               height="320"
@@ -168,6 +168,7 @@
         descontoPortaDaFrente: 5,
         alturaAcSuperiorSimples: 30,
         descontoFundoGaveta: 15,
+        descontoProfundidadeGaveta: 40,
   };
   try {
     this.resultado = await cortarRoupeiro(params);
@@ -242,12 +243,12 @@
     {
       Quantidade: this.resultado.calcularCorpo.quantTravessaGaveta,
       Comprimento: this.resultado.calcularCorpo.travessaGavetaComp,
-      Largura: this.resultado.calcularCorpo.alturaTravessaGaveta,
+      Largura: '137',
       Nome: 'Trvessa Gaveta',
     },
     {
       Quantidade: this.resultado.calcularCorpo.quantLateraisGaveta,
-      Comprimento: this.resultado.calcularCorpo.quantLateraisGaveta,
+      Comprimento: this.resultado.calcularCorpo.lateraisGavetaComp,
       Largura: '140',
       Nome: 'Laterais Gavetas',
     },
