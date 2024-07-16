@@ -28,7 +28,7 @@
             <div class="d-flex align-center">
               <v-select
               label="Acabamento Superior"
-              :items="['até o teto', 'Acabamento simples']"
+              :items="['Até o teto', 'Sem acabamento superior']"
               v-model="inputs.acSuperior" 
               />
               <v-dialog max-width="500px">
@@ -439,7 +439,7 @@
   },
    gerarPDF() {
     const doc = new jsPDF();
-    const pdf = resultado.calcularCorpo.lateralAltura;
+    // const pdf = ;
     
     doc.text(pdf, 10, 10);
     doc.save('plano.pdf');
