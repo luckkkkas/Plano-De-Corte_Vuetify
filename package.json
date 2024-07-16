@@ -6,11 +6,12 @@
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-     "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist"
   },
   "homepage": "https://luckkkkas.github.io/Plano-De-Corte_Vuetify",
   "dependencies": {
     "@mdi/font": "6.2.95",
+    "jspdf": "^2.5.1",
     "roboto-fontface": "*",
     "vue": "^3.4.21",
     "vue-router": "^4.0.13",
