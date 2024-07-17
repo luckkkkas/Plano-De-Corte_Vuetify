@@ -477,7 +477,7 @@
     {
       Quantidade: this.inputs.nVaos,
       Comprimento: this.resultado.calcularCorpo.fundoAltura,
-      Largura: this.resultado.calcularCorpo.fundoLargura,
+      Largura: this.resultado.calcularCorpo.fundoComp,
       Nome: 'Fundos Roupeiro',
     },
     {
