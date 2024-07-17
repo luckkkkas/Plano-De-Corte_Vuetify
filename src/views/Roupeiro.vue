@@ -2,7 +2,9 @@
     <v-app>
       <div class="flex-xm-column d-lg-flex ">
         <div class=" d-flex flex-column mx-auto w-100 w-sm-75 w-lg-50">
-          <h1 class="my-15  text-center">Plano de Corte de Roupeiro Reto</h1>
+          <h1 class="mb-15  text-center">
+            Lista de Corte de Roupeiro Reto
+          </h1>
           <v-form @submit.prevent="atribuirValores">  
             <div class="d-flex align-center">
               <v-select
@@ -13,15 +15,26 @@
               <v-dialog max-width="500px">
                 <template #activator="{ props }">
                   
-                  <v-btn v-bind="props" variant="text" icon="mdi-help-circle-outline" size="small" />
+                  <v-btn 
+                    v-bind="props" 
+                    variant="text" 
+                    icon="mdi-help-circle-outline" 
+                    size="small" 
+                  />
                 </template>
                   <v-card>
-                    <v-card-title class="d-flex justify-space-between">Tamponamento</v-card-title>
-                    <v-card-text>Tamponamento de móvel é o processo de aplicar um peça nas laterais dos móveis para criar uma 
+                    <v-card-title class="d-flex justify-space-between">
+                      Tamponamento
+                    </v-card-title>
+                    <v-card-text>
+                      Tamponamento de móvel é o processo de aplicar um peça nas laterais dos móveis para criar uma 
                       borda lisa e uniforme. Isso ajuda a esconder as extremidades dos painéis, dar um acabamento estético e 
                       proteger contra danos.
                     </v-card-text>
-                    <v-img cover src="https://static.wixstatic.com/media/9dc21d_503e6071e88c47f48d712250bf799bc5~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85,enc_auto/9dc21d_503e6071e88c47f48d712250bf799bc5~mv2.jpg" alt="Exemplo de Tamponamento"></v-img>
+                    <v-img 
+                      cover 
+                      src="https://static.wixstatic.com/media/9dc21d_503e6071e88c47f48d712250bf799bc5~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85,enc_auto/9dc21d_503e6071e88c47f48d712250bf799bc5~mv2.jpg" alt="Exemplo de Tamponamento"
+                    />
                   </v-card>
               </v-dialog>
             </div>
@@ -34,15 +47,25 @@
               <v-dialog max-width="500px">
                   <template #activator="{ props }">
                     
-                    <v-btn v-bind="props" variant="text" icon="mdi-help-circle-outline" size="small" />
+                    <v-btn 
+                      v-bind="props" 
+                      variant="text" 
+                      icon="mdi-help-circle-outline" 
+                      size="small"
+                    />
                   </template>
                     <v-card>
-                      <v-card-title class="d-flex justify-space-between">Acabamento Superior</v-card-title>
+                      <v-card-title class="d-flex justify-space-between">
+                        Acabamento Superior
+                      </v-card-title>
                       <v-card-text>
                         Acabamento superior pode ser até o teto, onde o móvel se adpata ao ambiente, necessitando um acabamento mais trabalhado,
                         e acbamento simples, quando não vai até o teto.
                       </v-card-text>
-                      <v-img cover src="../assets/images/IMG_20210428_133205998.jpg" alt="Exemplo de Acabamento Superior até o teto"></v-img>
+                      <v-img 
+                        cover 
+                        src="../assets/images/IMG_20210428_133205998.jpg" alt="Exemplo de Acabamento Superior até o teto"
+                      />
                     </v-card>
                 </v-dialog>
             </div>
@@ -55,15 +78,21 @@
               />
               <v-dialog max-width="500px">
                     <template #activator="{ props }">
-                      
-                      <v-btn v-bind="props" variant="text" icon="mdi-help-circle-outline" size="small" />
+                      <v-btn 
+                        v-bind="props" 
+                        variant="text" 
+                        icon="mdi-help-circle-outline" 
+                        size="small" 
+                      />
                     </template>
                       <v-card>
-                        <v-card-title class="d-flex justify-space-between">Comprimento</v-card-title>
+                        <v-card-title class="d-flex justify-space-between">
+                          Comprimento
+                        </v-card-title>
                         <v-card-text>
                           Quando falamos da comprimento de um roupeiro, estamos nos referindo à distância Horizontal de um lado a outro.
                         </v-card-text>
-                        <v-img cover src="../assets/images/Comp.png" alt="Exemplo de Tamponamento"></v-img>
+                        <v-img cover src="../assets/images/Comp.png" alt="Exemplo de Tamponamento"/>
                       </v-card>
                   </v-dialog>
             </div>
@@ -80,11 +109,17 @@
                       <v-btn v-bind="props" variant="text" icon="mdi-help-circle-outline" size="small" />
                     </template>
                       <v-card>
-                        <v-card-title class="d-flex justify-space-between">Altura</v-card-title>
+                        <v-card-title class="d-flex justify-space-between">
+                          Altura
+                        </v-card-title>
                         <v-card-text>
                           Quando falamos da altura de um roupeiro, estamos nos referindo à distância vertical desde a base (o chão) até o topo do móvel
                         </v-card-text>
-                        <v-img cover src="../assets/images/Alt.png" alt="Exemplo de Tamponamento"></v-img>
+                        <v-img 
+                          cover 
+                          src="../assets/images/Alt.png" 
+                          alt="Exemplo de Tamponamento"
+                        />
                       </v-card>
                   </v-dialog>
             </div>
@@ -97,15 +132,25 @@
               />
               <v-dialog max-width="500px">
                     <template #activator="{ props }">
-                      
-                      <v-btn v-bind="props" variant="text" icon="mdi-help-circle-outline" size="small" />
+                      <v-btn 
+                        v-bind="props" 
+                        variant="text" 
+                        icon="mdi-help-circle-outline" 
+                        size="small" 
+                      />
                     </template>
                       <v-card>
-                        <v-card-title class="d-flex justify-space-between">Espessura Tamponamento</v-card-title>
+                        <v-card-title class="d-flex justify-space-between">
+                          Espessura Tamponamento
+                        </v-card-title>
                         <v-card-text>
                           Espessura da camada exterior do móvel.
                         </v-card-text>
-                        <v-img cover src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOWLE1aqQ0kDUdNX8Y4NRFwgTQgnE5ru6kcw&s" alt="exemplo de Espessura de chapa"></v-img>
+                        <v-img 
+                          cover 
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOWLE1aqQ0kDUdNX8Y4NRFwgTQgnE5ru6kcw&s" 
+                          alt="exemplo de Espessura de chapa"
+                        />
                       </v-card>
               </v-dialog>
             </div>
@@ -118,15 +163,25 @@
               />
               <v-dialog max-width="500px">
                     <template #activator="{ props }">
-                      
-                      <v-btn v-bind="props" variant="text" icon="mdi-help-circle-outline" size="small" />
+                      <v-btn 
+                        v-bind="props" 
+                        variant="text" 
+                        icon="mdi-help-circle-outline" 
+                        size="small" 
+                      />
                     </template>
                       <v-card>
-                        <v-card-title class="d-flex justify-space-between">Largura</v-card-title>
+                        <v-card-title class="d-flex justify-space-between">
+                          Largura
+                        </v-card-title>
                         <v-card-text>
                           Profundidade final do móvel.
                         </v-card-text>
-                        <v-img cover src="../assets/images/Lar.png" alt="Exemplo de Larguara"></v-img>
+                        <v-img 
+                          cover 
+                          src="../assets/images/Lar.png" 
+                          alt="Exemplo de Larguara"
+                        />
                       </v-card>
               </v-dialog>
             </div>  
@@ -140,10 +195,17 @@
               <v-dialog max-width="500px">
                     <template #activator="{ props }">
                       
-                      <v-btn v-bind="props" variant="text" icon="mdi-help-circle-outline" size="small" />
+                      <v-btn 
+                        v-bind="props" 
+                        variant="text" 
+                        icon="mdi-help-circle-outline" 
+                        size="small" 
+                      />
                     </template>
                       <v-card>
-                        <v-card-title class="d-flex justify-space-between">Prateleiras</v-card-title>
+                        <v-card-title class="d-flex justify-space-between">
+                          Prateleiras
+                        </v-card-title>
                         <v-card-text>
                          Define o tamanho dos vãos do roupeiro
                         </v-card-text>
@@ -158,15 +220,23 @@
               />
               <v-dialog max-width="500px">
                     <template #activator="{ props }">
-                      
-                      <v-btn v-bind="props" variant="text" icon="mdi-help-circle-outline" size="small" />
+                      <v-btn
+                        v-bind="props" 
+                        variant="text" 
+                        icon="mdi-help-circle-outline" 
+                        size="small" 
+                      />
                     </template>
                       <v-card>
-                        <v-card-title class="d-flex justify-space-between">Quantidade de vãos</v-card-title>
+                        <v-card-title class="d-flex justify-space-between">
+                          Quantidade de vãos
+                        </v-card-title>
                         <v-card-text>
                           Define quantos vãos o roupeiro terá, podendo ser 1, 2 ou 3 vãos, os quis seram distribuidos conforme a escolha.
                         </v-card-text>
-                        <v-img src="../assets/images/IMG-20210108-WA0005.jpg"></v-img>
+                        <v-img 
+                          src="../assets/images/IMG-20210108-WA0005.jpg" 
+                        />
                       </v-card>
               </v-dialog>
             </div>  
@@ -178,15 +248,20 @@
               />
               <v-dialog max-width="500px">
                     <template #activator="{ props }">
-                      
                       <v-btn v-bind="props" variant="text" icon="mdi-help-circle-outline" size="small" />
                     </template>
                       <v-card>
-                        <v-card-title class="d-flex justify-space-between">Quantidade De gavetas</v-card-title>
+                        <v-card-title class="d-flex justify-space-between">
+                          Quantidade De gavetas
+                        </v-card-title>
                         <v-card-text>
                           quantidade de gavetas total do roupeiro.
                         </v-card-text>
-                        <v-img cover src="../assets/images/IMG_20220418_145914887.jpg" alt="Exemplo de Gavetas"></v-img>
+                        <v-img 
+                          cover 
+                          src="../assets/images/IMG_20220418_145914887.jpg" 
+                          alt="Exemplo de Gavetas"
+                        />
                       </v-card>
               </v-dialog>
             </div>
@@ -198,29 +273,45 @@
               />
               <v-dialog max-width="500px">
                     <template #activator="{ props }">
-                      
-                      <v-btn v-bind="props" variant="text" icon="mdi-help-circle-outline" size="small" />
+                      <v-btn 
+                        v-bind="props" 
+                        variant="text" 
+                        icon="mdi-help-circle-outline" 
+                        size="small" 
+                      />
                     </template>
                       <v-card>
-                        <v-card-title class="d-flex justify-space-between">Número de portas</v-card-title>
+                        <v-card-title class="d-flex justify-space-between">
+                          Número de portas
+                        </v-card-title>
                         <v-card-text>
                           Define a quantidade de portas que irão compor o roupeiro. Exemplo com Duas portas.
                         </v-card-text>
-                        <v-img cover src="../assets/images/IMG_20220418_145811249.jpg" alt="Exemplo de Portas"></v-img>
+                        <v-img 
+                          cover 
+                          src="../assets/images/IMG_20220418_145811249.jpg" 
+                          alt="Exemplo de Portas"
+                        />
                       </v-card>
               </v-dialog>
             </div>
             <div class="d-flex flex-column flex-lg-row justify-space-around">
-              <v-btn @click="limpar" class="ma-1" label="Limpar">Limpar</v-btn>
-              <v-btn type="submit" class="ma-1" @click="gerarPDF" color="primary">Calcular</v-btn>
+              <v-btn @click="limpar" class="ma-1" label="Limpar">
+                Limpar
+              </v-btn>
+              <v-btn type="submit" class="ma-1" @click="gerar" color="primary">
+                Calcular
+              </v-btn>
             </div>
           </v-form>
         </div>
         <div class=" flex-column pa-0 ma-0 text-center" v-if="resultado">
           <div>
-            <h3 class="mt-5">Interno</h3>
+            <h3 class="mt-5">
+              Interno
+            </h3>
             <v-data-table-virtual
-            class="mt-10 w-auto"
+              class="mt-10 w-auto"
               :headers="headers"  
               :items="interno"
               height="420"
@@ -228,9 +319,11 @@
             >{{ resultado }}</v-data-table-virtual>
           </div>
           <div >
-            <h3 class="mt-5">Tamponamento</h3>
+            <h3 class="mt-5">
+              Tamponamento
+            </h3>
             <v-data-table-virtual 
-            class="mt-10 w-auto"
+              class="mt-10 w-auto"
               :headers="headers"  
               :items="tamponamento"
               height="content"
@@ -238,9 +331,11 @@
             >{{ resultado }}</v-data-table-virtual>
           </div>
           <div>
-            <h3 class="mt-5">Acessórios</h3>
+            <h3 class="mt-5">
+              Acessórios
+            </h3>
             <v-data-table-virtual 
-            class="mt-10 w-auto"
+              class="mt-10 w-auto"
               :headers="acessoriosHead"  
               :items="acessorios"
               height="320"
@@ -255,14 +350,12 @@
 <script>
   import { cortarRoupeiro } from '@/utils/cortarRoupeiro.ts'
   import { VNumberInput } from 'vuetify/labs/VNumberInput'
-  import jsPDF from 'jspdf';
-
 
   export default {
     components: {
       VNumberInput,
     },
-    data() {
+    data: () => {
       return {
         inputs: {
           tamponamento: '',
@@ -325,10 +418,11 @@
   };
   try {
     this.resultado = await cortarRoupeiro(params);
-    console.log(this.resultado);
   }  catch(error){
     console.log(error)
   }
+
+  
 
   this.tamponamento = [
       {
@@ -437,16 +531,19 @@
   },
   ]
   },
-   gerarPDF() {
-    const doc = new jsPDF();
-    // const pdf = ;
-    
-    doc.text(pdf, 10, 10);
-    doc.save('plano.pdf');
-  },
   limpar(resultado){
-    this.resultado = ''
+    this.resultado = '',
+    this.inputs.acSuperior  = '';
+    this.inputs.altura = '';
+    this.inputs.espessura ='';
+    this.inputs.tamponamento = '';
+    this.inputs.profundidade ='';
+    this.inputs.nVaos='';
+    this.inputs.nPrateleiras = '';
+    this.inputs.nPortas ='';
+    this.inputs.nGavetas='';
+    this.inputs.largura ='';
   }
   }, 
 };
-  </script>  
+</script>  
