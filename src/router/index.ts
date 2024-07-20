@@ -9,7 +9,7 @@ import Plus from '@/views/Plus.vue';
 
 const routes = [
   { path: '/', name: 'Home', component: Home },
-  { path: '/Roupeiro', name: 'Roupeiro', component: Roupeiro },
+  { path: '/Roupeiro', name: 'Roupeiro', component: Roupeiro},
   { path: '/Banheiro', name: 'Banheiro', component: Banheiro},
   { path: '/Modulado', name: 'Modulado', component: Modulado},
   { path: '/Plus', name: 'Plus', component: Plus},

@@ -2,18 +2,20 @@
   <v-app>
     <v-container>
         <router-view>
-          <Roupeiro />
+          <Roupeiro/>
         </router-view> <!-- Componente para renderizar as rotas -->
       </v-container>
   </v-app>
 </template>
 
 <script>
+import Banheiro from './views/Banheiro.vue';
+import CozinhaRow from './views/CozinhaRow.vue';
 import Home from './views/Home.vue'
 import Roupeiro from './views/Roupeiro.vue';
+import Roupeiro from './views/Roupeiro.vue';
 export default {
-  components: { Home, Roupeiro},
-  // Sua configuração padrão aqui
+  components: { Home, Roupeiro, CozinhaRow, Banheiro},
 }
 </script>
 <style>
